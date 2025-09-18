@@ -1,4 +1,4 @@
 FROM ubuntu
-COPY *.txt /txt-file/
+COPY ./ /
 
 ENTRYPOINT ["/bin/bash", "-c","sleep 500"]
