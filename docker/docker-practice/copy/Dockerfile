@@ -1,4 +1,4 @@
 FROM ubuntu
-COPY app.txt /app.txt
+COPY config /config/
 
 ENTRYPOINT ["/bin/bash", "-c","sleep 500"]
