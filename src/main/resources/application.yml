@@ -6,3 +6,7 @@ spring:
     username: root
     password: 1q2w3e4r
     driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: my-cache-server
+      port: 6379
