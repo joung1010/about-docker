@@ -21,16 +21,27 @@ Docker는 **컨테이너 기반 가상화 기술**로, 애플리케이션과 그
 ### Docker & Docker Compose 설치
 
 ```bash
-$ sudo yum update -y && \
+sudo yum update -y && \
   sudo yum install -y docker && \
   sudo systemctl start docker && \
   sudo systemctl enable docker && \
   sudo usermod -aG docker ec2-user && \
-  newgrp docker && \
-  sudo curl -L "https://github.com/docker/compose/releases/download/2.27.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
+  sudo mkdir -p /usr/local/lib/docker/cli-plugins && \
+  sudo curl -L "https://github.com/docker/compose/releases/download/v2.27.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
+  sudo cp /usr/local/bin/docker-compose /usr/local/lib/docker/cli-plugins/docker-compose && \
   sudo chmod +x /usr/local/bin/docker-compose && \
+  sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose && \
   sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
+
+```bash
+$ aws configure
+AWS Access Key ID [None]: your_access_key_id
+AWS Secret Access Key [None]: your_secret_access_key
+Default region name [None]: ap-northeast-2
+
+```
+
 
 **설치됐는지 확인하기**
 
